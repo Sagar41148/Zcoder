@@ -1,15 +1,89 @@
-# Zcoder - Coding Platform
+ # Zcoder - Online Coding Platform
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app). 
-Getting Started First, run the development server: ```bash npm run dev # or yarn dev # or pnpm dev # or bun dev ``` Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file. [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`. The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages. This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-To Learn More about Next.js, take a look at the following resources: - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API. - [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial. You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-Deploy on Vercel The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js. Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Zcoder is a full-stack web platform that allows users to solve coding problems online. Built with **React, Next.js, TypeScript, Tailwind CSS**, and **Firebase**, it features secure authentication, a curated problem set, an integrated code editor, and sandboxed code execution.
 
-## Frontend
-Here are some snapshots of the UI of the frontend part of the project:
+---
 
-<img width="1919" height="1041" alt="Screenshot 2025-09-23 181905" src="https://github.com/user-attachments/assets/c65542c3-e5e5-4aa4-9f36-265dc6144198" />
-<img width="1919" height="1004" alt="Screenshot 2025-09-23 181928" src="https://github.com/user-attachments/assets/833e00cc-8da8-43fb-98cd-0ac30814a58c" />
-<img width="1919" height="1045" alt="Screenshot 2025-09-23 182242" src="https://github.com/user-attachments/assets/6bec528b-df41-474a-8745-37c01bc10adf" />
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+ 
+
+---
+
+## Features
+
+- **User Authentication & Authorization**
+  - Firebase Authentication with Recoil for state management.
+  - Route protection and secure Firestore rules.
+
+- **Curated Problem Set**
+  - Problems categorized by difficulty: Easy, Medium, Hard.
+  - Sample test cases for each problem.
+  - Tracks user progress and solved problems.
+
+- **Monaco-Based Code Editor**
+  - Integrated in-browser editor using Monaco Editor.
+  - Syntax highlighting and multi-language support.
+  - LocalStorage persistence to prevent code loss.
+
+- **Sandboxed Code Execution**
+  - Custom sandbox environment executes code safely.
+  - Validates outputs against test cases and provides real-time verdicts.
+  - Prevents infinite loops or unsafe operations.
+
+- **User Dashboard**
+  - Displays solved problems and submission history.
+
+- **Responsive UI**
+  - Fully responsive interface built with Tailwind CSS.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | React, Next.js, TypeScript, Tailwind CSS |
+| State Management | Recoil |
+| Authentication | Firebase Authentication |
+| Database | Firebase Firestore |
+| Code Editor | Monaco Editor |
+| Code Execution | Custom sandboxing technique |
+
+---
+
+## Architecture
 
 
+- **Frontend:** React + Next.js for routing, UI rendering, and server-side rendering.  
+- **Authentication:** Firebase Authentication with Recoil state management and secure Firestore rules.  
+- **Database:** Firestore stores problems, user submissions, and progress tracking.  
+- **Code Editor:** Monaco Editor embedded in React for in-browser code editing with syntax highlighting and persistence.  
+- **Code Execution:** Custom sandbox environment executes submitted code safely and validates against test cases.  
+- **Feedback:** Results (Accepted/Rejected/Error) displayed in real-time to the user.  
+
+---
+
+## Usage
+
+1. Sign up or log in using Firebase Authentication.  
+2. Browse the curated problem set and select a problem.  
+3. Write your solution in the **Monaco-based code editor**.  
+4. Click **Run** to test your code or **Submit** to validate it against all test cases in the sandbox.  
+5. View real-time execution results (Accepted/Rejected/Error).  
+6. Track solved problems and submission history on your dashboard.
+
+---
+
+## Project Structure
+
+- /components   # React components (Editor, ProblemCard, Navbar)
+- /pages        # Next.js pages (home, problems, dashboard)
+- /utils        # Helper functions (sandbox execution, test case validation)
+- /firebase     # Firebase configuration and services
+- /styles       # Tailwind CSS customizations
